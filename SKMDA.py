@@ -33,7 +33,7 @@ def ERMDA(data_path, fold_num, sel_fea, sel_fea_num, base_hp1, base_hp2, base_hp
             nega_test_data = np.array([x for i, x in enumerate(unlabelled_cv_data) if i % fold_num == fold])
             X_test = np.concatenate((posi_test_data[:,:-2], nega_test_data[:,:-2]))
             y_test = np.concatenate((posi_test_data[:,-2], nega_test_data[:,-2]))
-            base_learners = stacked_learning.base_xgb_learners(base_learner_num, local_time, base_hp1, base_hp2, base_hp3)
+            base_learners = stacked_learning.base_rf_learners(base_learner_num, local_time, base_hp1, base_hp2)
             metric_list = []
             trained_clfs = []
             most_imps_list = []
