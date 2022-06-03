@@ -3,11 +3,11 @@ from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from xgboost.sklearn import XGBClassifier
 import numpy as np
 
-def base_xgb_learners(group_num,local_time,hy1,hy2,hy3):
+def base_rf_learners(group_num,local_time,hy1,hy2):
     clfs = []
     for i in range(group_num):
-        print('XGB'+str(i+1)+': n_estimators = '+str(hy1)+' learning_rate: '+str(hy2)+'\n')
-        clfs.append(XGBClassifier(n_estimators=hy1, max_depth=hy2, learning_rate=hy3))
+        print('RF'+str(i+1)+': n_estimators = '+str(hy1)+' learning_rate: '+str(hy2)+'\n')
+        clfs.append(RandomForestClassifier(n_estimators=hy1, max_depth=hy2))
     return clfs
 
 
